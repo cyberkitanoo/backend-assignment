@@ -5,8 +5,8 @@ const nodemailer = require('nodemailer')
 const transport = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'cyberkitanu@gmail.com',
-        pass: 'Abhishek@0907'
+        user: 'youremail@gmail',
+        pass: 'yourpassword'
     }
 })
 
@@ -59,7 +59,7 @@ route.get('/mailInvoice', async(req,res) =>{
     try{
         const s = await invoices.findById(req.query.id)
     const mailOptions = {
-        from: 'cyberkitanu@gmail.com',
+        from: 'youremail@gmail.com',
         to: req.query.email,
         subject: 'Invoice for purchase vide invoice id: '+req.query.id,
         text: 'Please find the attached Invoice for your reference and pay the amount as instructed in notes.\n'+s
